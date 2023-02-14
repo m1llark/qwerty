@@ -25,7 +25,7 @@ class Main {
         if (operands.length != 2 ) throw new Exception("Должно быть два операнда");
         oper = detectOperation(input);
         
-        if (oper == null) throw new Exception("Неподдерживаемая математическая операция");
+        if (oper == null) throw new Exception("Неподдерживаемая  операция");
         
         if (Roman.isRoman(operands[0]) && Roman.isRoman(operands[1])) {
             num1 = Roman.convertToArabian(operands[0]);
@@ -61,10 +61,10 @@ class Main {
     }
 
     static String detectOperation(String expression) {
-        if (expression.charAt(1) == '+') return "+";
-        else if (expression.charAt(1) == '-') return "-";
-        else if (expression.charAt(1) == '*') return "*";
-        else if (expression.charAt(1) == '/') return "/";
+        if (expression.contains("+")) return "+";
+        else if (expression.contains("-")) return "-";
+        else if (expression.contains("*")) return "*";
+        else if (expression.contains("/")) return "/";
         else return null;
     }
 
